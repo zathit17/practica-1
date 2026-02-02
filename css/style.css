@@ -1,8 +1,57 @@
-/* Main CSS file */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Main CSS file - Brand Palette */
+:root {
+    /* Primary Color: #264091 (Deep Blue) */
+    --primary-50: #eef2fa;
+    --primary-100: #dce4f4;
+    --primary-200: #bccbeb;
+    --primary-300: #9cb1e1;
+    --primary-400: #7c98d8;
+    --primary-500: #5c7ece;
+    --primary-600: #3c65c5;
+    --primary-700: #264091;
+    /* Base Brand Color */
+    --primary-800: #1e3374;
+    --primary-900: #172657;
+
+    /* Secondary Accent: #EB6E08 (Orange) */
+    --secondary-50: #fef6ed;
+    --secondary-100: #fdecdb;
+    --secondary-200: #fce3c9;
+    --secondary-300: #fad9b7;
+    --secondary-400: #f9d0a5;
+    --secondary-500: #eb6e08;
+    /* Base Brand Color */
+    --secondary-600: #bc5806;
+    --secondary-700: #8d4205;
+    --secondary-800: #5e2c03;
+    --secondary-900: #2f1602;
+
+    /* Tertiary Neutral: #C6C7C9 (Gray) */
+    --neutral-50: #fbfbfc;
+    --neutral-100: #f7f7f8;
+    --neutral-200: #eeeeef;
+    --neutral-300: #e5e5e6;
+    --neutral-400: #ddddde;
+    --neutral-500: #c6c7c9;
+    /* Base Brand Color */
+    --neutral-600: #9e9fa1;
+    --neutral-700: #777779;
+    --neutral-800: #4f4f50;
+    --neutral-900: #282828;
+
+    /* Functional Semantic Colors */
+    --color-background: var(--neutral-100);
+    --color-text: var(--neutral-900);
+    --color-primary: var(--primary-700);
+    --color-secondary: var(--secondary-500);
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,6 +61,6 @@ body {
 }
 
 h1 {
-    color: #555;
+    color: var(--primary-700);
     text-align: center;
 }
