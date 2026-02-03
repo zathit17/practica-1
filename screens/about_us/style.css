@@ -168,8 +168,11 @@ body {
 
 /* Stats Bar Section */
 .stats-bar {
-    padding: 0 0 100px;
+    padding: 0;
     background-color: white;
+    position: relative;
+    z-index: 5;
+    /* Ensure shadow sits on top of next section if tight */
 }
 
 .stats-wrapper {
@@ -294,6 +297,142 @@ body {
     /* Orange accent for the number being counted */
 }
 
+/* Work Methodology Section */
+.work-methodology {
+    padding: 32px 0 100px;
+    /* Reduced top padding as requested */
+    background: linear-gradient(to bottom, white, var(--neutral-50));
+    position: relative;
+    overflow: visible;
+    /* changed from hidden to let shadows breathe if needed, though z-index handles it */
+}
+
+/* Background decoration */
+.work-methodology::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 10% 20%, rgba(26, 43, 94, 0.03) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(235, 110, 8, 0.03) 0%, transparent 20%);
+    pointer-events: none;
+}
+
+.methodology-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.methodology-header h2 {
+    font-size: 2.8rem;
+    color: var(--primary-900);
+    margin-bottom: 25px;
+    font-weight: 800;
+}
+
+.header-divider {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-500), var(--secondary-300));
+    border: none;
+    border-radius: 2px;
+    margin: 0 auto;
+}
+
+.methodology-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.method-card {
+    background: white;
+    border-radius: 24px;
+    padding: 40px 30px;
+    position: relative;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 380px;
+}
+
+.method-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(26, 43, 94, 0.1);
+    border-color: transparent;
+}
+
+/* Large background number */
+.step-number {
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(26, 43, 94, 0.03);
+    line-height: 1;
+    transition: all 0.4s ease;
+    user-select: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.method-card:hover .step-number {
+    color: rgba(235, 110, 8, 0.08);
+    /* Orange tint on hover */
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+}
+
+.method-icon {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(26, 43, 94, 0.2);
+    transition: all 0.4s ease;
+}
+
+.method-card:hover .method-icon {
+    background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600));
+    box-shadow: 0 10px 20px rgba(235, 110, 8, 0.3);
+    transform: rotate(5deg) scale(1.1);
+}
+
+.method-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary-900);
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    transition: color 0.3s ease;
+}
+
+.method-card p {
+    font-size: 1.1rem;
+    color: var(--neutral-700);
+    line-height: 1.7;
+    margin: 0;
+}
+
 /* Responsive adjustments */
 @media (max-width: 900px) {
     .hero-container {
@@ -338,5 +477,20 @@ body {
         align-items: center;
         text-align: center;
         padding: 30px 20px;
+    }
+
+    .methodology-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .method-card {
+        padding: 30px;
+        text-align: left;
+        /* Keep left alignment for readability */
+    }
+
+    .step-number {
+        font-size: 6rem;
     }
 }
